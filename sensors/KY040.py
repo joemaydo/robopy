@@ -20,7 +20,7 @@ class KY040:
         GPIO.setup(clockPin, GPIO.IN)
         GPIO.setup(dataPin, GPIO.IN)
 
-        if None != self.switchPin:
+        if self.switchPin != None:
             GPIO.setup(switchPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def start(self):
