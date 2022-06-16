@@ -33,11 +33,15 @@ pwm.set_pwm(0, 0, 0)
         self.pwm = Adafruit_PCA9685.PCA9685(address)
         self.pwm.set_pwm_freq(freq)
 
-    def move(self, direction, speed):
-        pass
-
     def move_forward(self, motor, speed):
         pass
 
     def move_back(self, motor, speed):
         pass
+
+    def move_left(self, motor, speed):
+        pass
+
+    def move_right(self, motor, speed):
+        pass
+
