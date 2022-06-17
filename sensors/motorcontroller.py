@@ -30,6 +30,7 @@ pwm.set_pwm(0, 0, 0)
 
     def __init__(self, address=0x40, freq=50):
         self.address = address
+        self.freq = freq
         self.pwm = Adafruit_PCA9685.PCA9685(address)
         self.pwm.set_pwm_freq(freq)
 
@@ -45,3 +46,10 @@ pwm.set_pwm(0, 0, 0)
     def move_right(self, motor, speed):
         pass
 
+    def get_servopulse(pulse):
+        pulse_length = 1000000
+        pulse_length //= 60
+        pulse_length //= 4096
+        pulse *= 1000
+        pulse //= pulse_length
+        return pulse
