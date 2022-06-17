@@ -20,7 +20,8 @@ GPIO.setmode(InputLeft2, GPIO.OUT)
 GPIO.setmode(InputRight3, GPIO.OUT)
 GPIO.setmode(InputRight4, GPIO.OUT)
 
-pwmLeft = Adafruit_PCA9685.PCA9685(0x40)
+pwm = Adafruit_PCA9685.PCA9685(address=0x40)
+pwm.set_pwm_freq(50)
 
 
 
