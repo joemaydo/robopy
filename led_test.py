@@ -6,7 +6,7 @@ import sys
 
 
 pinLed = 5
-ledOn = Fasle
+ledOn = False
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(pinLed, GPIO.OUT)
