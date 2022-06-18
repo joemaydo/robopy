@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 import sys
 
 
-pinLed = 5
+pinLed = 11
 ledOn = False
 
 GPIO.setmode(GPIO.BOARD)
