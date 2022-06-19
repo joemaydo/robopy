@@ -1,55 +1,45 @@
+
 import motor
 import time
 import Adafruit_PCA9685
 
 
+def get_servo_pulse(pulse):
+    pulse_length = 1000000
+    pulse_length //= 60
+    pulse_length //= 4096
+    pulse *= 1000
+    pulse //= pulse_length
+    return pulse
+
+
 class MotorController:
 
-"""er zweite wichtige Befehl ist jener, mit dem wir den Puls für einen angeschlossenen Servo Motor senden. Der
-erste Parameter ist dabei der Channel (zw. 0 und 15), der zweite und dritte Parameter ist die relative Pulslänge im
-Verhältnis zu 4096 (was 2^12 entspricht). Die Differenz der beiden Werte darf nicht größer als 4096 sein.
-Um den Motor in Stellung zu bringen können wir bspw. folgendes eingeben:
+    pwm_pulse = 4096
 
-pwm.set_pwm(0, 0, 150)
-
-Dabei wird lediglich die Differenz berechnet. Der obige Aufruf ist also äquivalent zu diesem:
-
-pwm.set_pwm(0, 600, 750)
-
-Das Signal wird im folgend berechnet: Möchtest du ein Signal von bspw. 0.5ms (=0.0005s) bei einer Frequenz von 50Hz
-(ein Puls ist 20ms breit) ausgeben, so müsste der relative Wert ~100 sein (50Hz * 0.0005s * 4096 = 102.4).
-Die üblichen Pulslängen von Servos sind 0.5ms (0°) bis 2.5ms (180°). Dazwischen wird interpoliert.
-
-Wie auch im Beispiel des einfachen Servos gilt, dass wir das „Ruckeln“ des Servos ausstellen können,
-sofern wir den Puls auf Null setzen:
-
-pwm.set_pwm(0, 0, 0)
-
- """
-
-
-    def __init__(self, address=0x40, freq=50):
+    def __init__(self, leftMotor: motor, rightMotor: motor, channel_left=0, channel_right=1, address=0x40, freq=50):
         self.address = address
         self.freq = freq
         self.pwm = Adafruit_PCA9685.PCA9685(address)
         self.pwm.set_pwm_freq(freq)
+        self.channel_left = channel_left
+        self.channel_right = channel_right
 
-    def move_forward(self, motor, speed):
+        self.leftMotor = leftMotor
+        self.rightMotor = rightMotor
+
+    def move_forward(self, engine: motor, pwm_channel, speed: float):
         pass
 
-    def move_back(self, motor, speed):
+    def move_back(self, engine: motor, speed):
         pass
 
-    def move_left(self, motor, speed):
+    def move_left(self, engine, speed):
         pass
 
-    def move_right(self, motor, speed):
+    def move_right(self, engine, speed):
         pass
 
-    def get_servopulse(pulse):
-        pulse_length = 1000000
-        pulse_length //= 60
-        pulse_length //= 4096
-        pulse *= 1000
-        pulse //= pulse_length
-        return pulse
+    def move(self, speed: float, pwm_channel):
+        speed = int(speed * self.pwm_pulse)
+        self.pwm.set_pwm(pwm_channel, 0, speed)
