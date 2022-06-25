@@ -2,6 +2,7 @@
 import motor
 import time
 import Adafruit_PCA9685
+import numpy as np
 
 
 def get_servo_pulse(pulse):
@@ -28,6 +29,8 @@ class MotorController:
         self.leftMotor = leftMotor
         self.rightMotor = rightMotor
 
+        self.controller = [0, 0]
+
     def move_forward(self, engine: motor, pwm_channel, speed: float):
         pass
 
@@ -43,3 +46,12 @@ class MotorController:
     def move(self, speed: float, pwm_channel):
         speed = int(speed * self.pwm_pulse)
         self.pwm.set_pwm(pwm_channel, 0, speed)
+
+    @property.getter
+    def speed(self, channel):
+        return self.controller[channel]
+
+    @property.setter
+    def speed(self, channel, speed):
+        self.controller[channel] = speed
+
