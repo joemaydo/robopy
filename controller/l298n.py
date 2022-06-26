@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 
 
-class Motor:
+class L298N:
 
     def __init__(self, pinIN1, pinIN2, pinEn, setupMode=GPIO.BCM):
         self.pinIN1 = pinIN1

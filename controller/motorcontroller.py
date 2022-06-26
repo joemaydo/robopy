@@ -1,5 +1,5 @@
 
-import motor
+import l298n
 import time
 import Adafruit_PCA9685
 import numpy as np
