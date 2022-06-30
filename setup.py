@@ -5,6 +5,7 @@ setup(
     version='0.1.1',
     description='simple lib for robo stuff',
     author='joemaydo',
+    author_email='joerg_mueller26@hotmail.com',
     url='https://github.com/joemaydo/robopy.git',
     packages=['robopy'],
 
