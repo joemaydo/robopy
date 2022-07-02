@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import RPi.GPIO as GPIO
-import controller as motor
+from robopy import controller as motor
 
 EnableLeft = 13
 EnableRight = 15

@@ -7,7 +7,9 @@ setup(
     author='joemaydo',
     author_email='joerg_mueller26@hotmail.com',
     url='https://github.com/joemaydo/robopy.git',
-    py_modules=['mainapp', 'controller'],
+    packages=['robopy',
+                'robopy.mainapp',
+                'robopy.controller'],
 
 
     classifiers=[
