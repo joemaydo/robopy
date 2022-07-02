@@ -2,12 +2,12 @@ from setuptools import setup
 
 setup(
     name='robopy',
-    version='0.1.3',
+    version='0.1.4',
     description='simple lib for robo stuff',
     author='joemaydo',
     author_email='joerg_mueller26@hotmail.com',
     url='https://github.com/joemaydo/robopy.git',
-    py_modules=['robopy'],
+    py_modules=['mainapp', 'controller'],
 
 
     classifiers=[
