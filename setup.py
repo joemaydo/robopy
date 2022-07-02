@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='robopy',
-    version='0.1.4',
+    version='0.1.5',
     description='simple lib for robo stuff',
     author='joemaydo',
     author_email='joerg_mueller26@hotmail.com',
