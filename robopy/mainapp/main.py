@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
-from time import sleep
 import RPi.GPIO as GPIO
-import controller.motorcontroller as motor
+import robopy.controller.motorcontroller as motor
 
 
 EnableLeft = 13

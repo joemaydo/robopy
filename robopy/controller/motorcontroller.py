@@ -1,7 +1,5 @@
 import l298n
-import time
 import Adafruit_PCA9685
-import numpy as np
 
 
 def get_servo_pulse(pulse: int) -> int:
