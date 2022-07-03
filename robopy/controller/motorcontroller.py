@@ -41,9 +41,9 @@ class MotorController:
         speed = int(speed * self.__pwm_pulse)
         self.__pwm.set_pwm(pwm_channel, 0, speed)
 
-    def get_speed(self, channel):
-        return self.__motor_speed[channel]
+    def get_speed(self, pwm_channel: int):
+        return self.__motor_speed[pwm_channel]
 
-    def set_speed(self, channel, speed):
-        self.__motor_speed[channel] = speed
+    def set_speed(self, pwm_channel: int, speed: float):
+        self.__motor_speed[pwm_channel] = speed
 
